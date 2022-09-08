@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './SearchEngine.css';
-
-import ReactAnimatedWeather from 'react-animated-weather';
+import Forecast from '../Forecast/Forecast';
 
 export default function SearchEngine(props) {
     const [city, setCity] = useState(props.defaultCity);
@@ -54,8 +53,9 @@ export default function SearchEngine(props) {
         <div className='container'>
             <form onSubmit={handleSubmit}>
                 <input
+                    className='search-input'
                     type='search'
-                    placeholder='Search for a city...'
+                    placeholder='Enter a city...'
                     onChange={showCity}
                 />
                 <input className='btn' type='submit' value='Search' />
@@ -71,24 +71,8 @@ export default function SearchEngine(props) {
                         <li>Humidity: {description.humidity} %</li>
                         <li>Wind: {description.wind} km/h</li>
                     </ul>
-                    <ReactAnimatedWeather
-                        icon='PARTLY_CLOUDY_DAY'
-                        color='blueviolet'
-                        size='50'
-                        animate='true'
-                    />
-                    <ReactAnimatedWeather
-                        icon='PARTLY_CLOUDY_DAY'
-                        color='blueviolet'
-                        size='50'
-                        animate='true'
-                    />
-                    <ReactAnimatedWeather
-                        icon='PARTLY_CLOUDY_DAY'
-                        color='blueviolet'
-                        size='50'
-                        animate='true'
-                    />
+
+                    <Forecast />
                 </div>
             ) : (
                 search()

@@ -1,18 +1,12 @@
 import './App.css';
 
-import ReactAnimatedWeather from 'react-animated-weather';
-import SearchEngine from './SearchEngine';
+import SearchEngine from './SearchEngine/SearchEngine';
 
 export default function App() {
     return (
         <div className='App'>
             <div className='weather_header'>
-                <ReactAnimatedWeather
-                    icon='CLEAR_DAY'
-                    color='blueviolet'
-                    size='50'
-                    animate='true'
-                />
+                {/* <img src='./img/undraw_react.svg' alt='logo' /> */}
                 <h1>Weather App</h1>
             </div>
             <div>
