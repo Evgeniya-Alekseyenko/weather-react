@@ -19,9 +19,6 @@ export default function SearchEngine(props) {
     function search() {
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
         axios.get(url).then((response) => {
-            // console.log(response);
-            console.log('desc is', description);
-
             setDescription({
                 temperature: Math.round(response.data.main.temp),
                 humidity: response.data.main.humidity,
@@ -31,24 +28,6 @@ export default function SearchEngine(props) {
             });
         });
     }
-
-    // function handleSubmit(e) {
-    //     e.preventDefault();
-    //     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
-    //     axios.get(url).then((response) => {
-    //         // console.log(response);
-    //         console.log('desc is', description);
-
-    //         setDescription({
-    //             temperature: Math.round(response.data.main.temp),
-    //             humidity: response.data.main.humidity,
-    //             wind: response.data.wind.speed,
-    //             desc: response.data.weather[0].description,
-    //             icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-    //         });
-    //     });
-    // }
-
     return (
         <div className='container'>
             <form onSubmit={handleSubmit}>
@@ -71,7 +50,6 @@ export default function SearchEngine(props) {
                         <li>Humidity: {description.humidity} %</li>
                         <li>Wind: {description.wind} km/h</li>
                     </ul>
-
                     <Forecast />
                 </div>
             ) : (

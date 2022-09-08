@@ -23,3 +23,28 @@ h1 {
     margin-left: 10px;
     color: blueviolet;
 }
+img {
+    margin-bottom: 25px;
+}
+a {
+    text-decoration: none;
+}
+.footer-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.footer-link img {
+    margin: 0 10px 0 0;
+    background-color: #e6e6fa;
+    border-radius: 50%;
+}
+.name_link {
+    margin-left: 5px;
+}
+@media (max-width: 480px) {
+    .footer-link {
+        text-align: center;
+    }
+}
