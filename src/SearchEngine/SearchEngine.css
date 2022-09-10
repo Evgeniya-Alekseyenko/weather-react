@@ -1,5 +1,5 @@
 .heading {
-    font-size: 26px;
+    font-size: 32px;
     text-transform: capitalize;
     color: blueviolet;
     display: flex;
@@ -21,7 +21,7 @@ input {
     background-color: #e3d8f0;
     color: blueviolet;
     font-size: 16px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Lobster';
     font-weight: bold;
 }
 .btn:hover {
@@ -45,4 +45,16 @@ input {
         margin-bottom: 10px;
         font-size: 14px;
     }
+}
+@media (max-width: 768px) {
+    .heading {
+        font-size: 24px;
+    }
+}
+.fahr-btn {
+    border: none;
+    background: #e6e6fa;
+    color: blueviolet;
+    font-size: 26px;
+    font-family: 'Lobster';
 }

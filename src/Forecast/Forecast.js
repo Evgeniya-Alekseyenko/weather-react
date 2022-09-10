@@ -10,8 +10,7 @@ export default function Forecast() {
                     <ReactAnimatedWeather
                         icon='CLOUDY'
                         color='blueviolet'
-                        size='50'
-                        animate='true'
+                        size={50}
                     />
                     <div className='card-box__text'>
                         <span>25/18°C</span>
@@ -24,8 +23,7 @@ export default function Forecast() {
                     <ReactAnimatedWeather
                         icon='SLEET'
                         color='blueviolet'
-                        size='50'
-                        animate='true'
+                        size={50}
                     />
                     <div className='card-box__text'>
                         <span>20/15°C</span>
@@ -38,8 +36,7 @@ export default function Forecast() {
                     <ReactAnimatedWeather
                         icon='RAIN'
                         color='blueviolet'
-                        size='50'
-                        animate='true'
+                        size={50}
                     />
                     <div className='card-box__text'>
                         <span>17/13°C</span>
@@ -52,8 +49,7 @@ export default function Forecast() {
                     <ReactAnimatedWeather
                         icon='PARTLY_CLOUDY_DAY'
                         color='blueviolet'
-                        size='50'
-                        animate='true'
+                        size={50}
                     />
                     <div className='card-box__text'>
                         <span>25/18°C</span>
@@ -66,8 +62,7 @@ export default function Forecast() {
                     <ReactAnimatedWeather
                         icon='CLEAR_DAY'
                         color='blueviolet'
-                        size='50'
-                        animate='true'
+                        size={50}
                     />
                     <div className='card-box__text'>
                         <span>25/18°C</span>

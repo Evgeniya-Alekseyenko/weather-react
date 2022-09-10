@@ -42,7 +42,8 @@ export default function SearchEngine(props) {
             {description ? (
                 <div>
                     <div className='heading'>
-                        {city} {description.temperature}ºC
+                        {city} {description.temperature}ºC |
+                        {Math.round((description.temperature * 9) / 5 + 32)}ºF
                         <img src={description.icon} alt='weather icon' />
                     </div>
                     <div className='desc'>{description.desc}</div>
