@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './SearchEngine.css';
 import Forecast from '../Forecast/Forecast';
+import Fahrenheit from '../SearchEngine/Fahrenheit';
 
 export default function SearchEngine(props) {
     const [city, setCity] = useState(props.defaultCity);
@@ -28,6 +29,7 @@ export default function SearchEngine(props) {
             });
         });
     }
+
     return (
         <div className='container'>
             <form onSubmit={handleSubmit}>
@@ -42,9 +44,15 @@ export default function SearchEngine(props) {
             {description ? (
                 <div>
                     <div className='heading'>
-                        {city} {description.temperature}ºC |
-                        {Math.round((description.temperature * 9) / 5 + 32)}ºF
-                        <img src={description.icon} alt='weather icon' />
+                        {city}
+                        <div className='heading-units'>
+                            <Fahrenheit celsius={description.temperature} />
+                        </div>
+                        <img
+                            className='weather-icon'
+                            src={description.icon}
+                            alt='weather icon'
+                        />
                     </div>
                     <div className='desc'>{description.desc}</div>
                     <ul>

@@ -1,10 +1,26 @@
 .heading {
-    font-size: 32px;
+    font-size: 62px;
     text-transform: capitalize;
     color: blueviolet;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.heading-units {
+    padding: 0 15px;
+    font-size: 34px;
+}
+.unit {
+    text-decoration: underline;
+}
+.units {
+    margin: 10px;
+}
+.unit-heading {
+    padding-right: 30px;
+}
+.weather-icon {
+    margin: 0;
 }
 .desc {
     text-transform: uppercase;
@@ -48,7 +64,10 @@ input {
 }
 @media (max-width: 768px) {
     .heading {
-        font-size: 24px;
+        /* display: flex; */
+        flex-direction: column;
+        margin-top: 20px;
+        /* font-size: 24px; */
     }
 }
 .fahr-btn {
