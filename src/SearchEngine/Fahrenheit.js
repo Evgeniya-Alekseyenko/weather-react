@@ -20,7 +20,6 @@ export default function Fahrenheit(props) {
                     {Math.round(props.celsius)}°C
                 </span>
                 <span className='units'>
-                    {/* °C | */}
                     <a href='/' className='unit' onClick={showFahrenheit}>
                         °F
                     </a>
@@ -36,7 +35,6 @@ export default function Fahrenheit(props) {
                     <a href='/' className='unit' onClick={showCelsius}>
                         °C
                     </a>
-                    {/* | °F */}
                 </span>
             </h2>
         );
