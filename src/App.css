@@ -7,10 +7,17 @@ body {
             rgba(236, 151, 176, 0.8),
             rgba(34, 101, 163, 0.5)
         ),
-        url(https://images.unsplash.com/photo-1500491460312-c32fc2dbc751?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+        url(https://images.unsplash.com/photo-1500491460312-c32fc2dbc751?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)
+            no-repeat center center fixed;
     background-size: cover;
+    background-repeat: no-repeat;
 }
-
+@media (max-width: 1200px) {
+    body {
+        height: 100%;
+        background: url(https://images.unsplash.com/photo-1500491460312-c32fc2dbc751?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+    }
+}
 .App {
     font-family: 'Lobster';
     text-align: center;

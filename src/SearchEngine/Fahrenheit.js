@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './SearchEngine.css';
 
 export default function Fahrenheit(props) {
-    console.log(props.celsius);
     const [unit, setUnit] = useState('celsius');
 
     function showFahrenheit(event) {
