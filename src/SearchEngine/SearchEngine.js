@@ -8,30 +8,51 @@ import WeatherIcon from '../WeatherIcon';
 
 export default function SearchEngine(props) {
     const [city, setCity] = useState(props.defaultCity);
-    const [description, setDescription] = useState(null);
+    const [description, setDescription] = useState();
+
+    function handleResponse(response) {
+        setDescription({
+            temperature: Math.round(response.data.main.temp),
+            humidity: response.data.main.humidity,
+            wind: response.data.wind.speed,
+            desc: response.data.weather[0].description,
+            coordinates: response.data.coord,
+            date: new Date(response.data.dt * 1000),
+            // icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+            icon: response.data.weather[0].icon,
+            city: response.data.name,
+        });
+    }
 
     function showCity(e) {
         setCity(e.target.value);
     }
 
     function handleSubmit(event) {
+        // console.log(description.coordinates);
+        // console.log(description);
         event.preventDefault();
         search();
     }
 
     function search() {
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
-        axios.get(url).then((response) => {
-            setDescription({
-                temperature: Math.round(response.data.main.temp),
-                humidity: response.data.main.humidity,
-                wind: response.data.wind.speed,
-                desc: response.data.weather[0].description,
-                // icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-                icon: response.data.weather[0].icon,
-                city: response.data.name,
-            });
-        });
+        axios.get(url).then(handleResponse);
+
+        // axios.get(url).then((response) => {
+        // console.log(response);
+        // setDescription({
+        //     temperature: Math.round(response.data.main.temp),
+        //     humidity: response.data.main.humidity,
+        //     wind: response.data.wind.speed,
+        //     desc: response.data.weather[0].description,
+        //     coordinates: response.data.coord,
+        //     date: new Date(response.data.dt * 1000),
+        //     // icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+        //     icon: response.data.weather[0].icon,
+        //     city: response.data.name,
+        // });
+        // });
     }
 
     return (
@@ -48,7 +69,7 @@ export default function SearchEngine(props) {
             {description ? (
                 <div>
                     <div className='heading'>
-                        <h1> {city}</h1>
+                        <h1> {description.city}</h1>
                         <div className='heading-units'>
                             <Fahrenheit celsius={description.temperature} />
                         </div>
@@ -66,7 +87,7 @@ export default function SearchEngine(props) {
                         <li>Humidity: {description.humidity} %</li>
                         <li>Wind: {description.wind} km/h</li>
                     </ul>
-                    <Forecast />
+                    <Forecast coordinates={description.coordinates} />
                 </div>
             ) : (
                 search()

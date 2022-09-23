@@ -12,7 +12,9 @@ export default function App() {
                     <h1>Weather App</h1>
                 </div>
                 <div>
-                    <SearchEngine defaultCity='Kharkiv' />
+                    <SearchEngine
+                    // defaultCity='Kharkiv'
+                    />
                     <CurrentTime />
                 </div>
             </div>
