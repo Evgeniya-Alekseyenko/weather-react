@@ -29,8 +29,6 @@ export default function SearchEngine(props) {
     }
 
     function handleSubmit(event) {
-        // console.log(description.coordinates);
-        // console.log(description);
         event.preventDefault();
         search();
     }
@@ -38,21 +36,19 @@ export default function SearchEngine(props) {
     function search() {
         let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=3a94f3778290bfeee61278505dbbe51d&units=metric`;
         axios.get(url).then(handleResponse);
+    }
 
-        // axios.get(url).then((response) => {
-        // console.log(response);
-        // setDescription({
-        //     temperature: Math.round(response.data.main.temp),
-        //     humidity: response.data.main.humidity,
-        //     wind: response.data.wind.speed,
-        //     desc: response.data.weather[0].description,
-        //     coordinates: response.data.coord,
-        //     date: new Date(response.data.dt * 1000),
-        //     // icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-        //     icon: response.data.weather[0].icon,
-        //     city: response.data.name,
-        // });
-        // });
+    function showPosition(position) {
+        let apiKey = 'e4dc49ce2bc5d1c1459936259cc8c63f';
+        let url = 'https://api.openweathermap.org/data/2.5/weather?';
+        let currentLongitude = position.coords.longitude;
+        let currentLatitude = position.coords.latitude;
+        let currentCityUrl = `${url}lat=${currentLatitude}&lon=${currentLongitude}&units=metric&appid=${apiKey}`;
+        axios.get(currentCityUrl).then(handleResponse);
+    }
+    function showCurrentCityWeather(event) {
+        event.preventDefault();
+        navigator.geolocation.getCurrentPosition(showPosition);
     }
 
     return (
@@ -66,6 +62,12 @@ export default function SearchEngine(props) {
                 />
                 <input className='btn-search' type='submit' value='Search' />
             </form>
+            <input
+                className='btn-search-current'
+                type='submit'
+                value='Current city'
+                onClick={showCurrentCityWeather}
+            />
             {description ? (
                 <div>
                     <div className='heading'>
@@ -76,11 +78,6 @@ export default function SearchEngine(props) {
                         <div>
                             <WeatherIcon code={description.icon} size={62} />
                         </div>
-                        {/* <img
-                            className='weather-icon'
-                            src={description.icon}
-                            alt='weather icon'
-                        /> */}
                     </div>
                     <div className='desc'>{description.desc}</div>
                     <ul>
